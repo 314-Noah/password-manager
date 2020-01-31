@@ -1,4 +1,4 @@
-package de.noah.mcfutta.util;
+package de.noah.passwordmanager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
