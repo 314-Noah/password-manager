@@ -4,17 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
 import org.springframework.data.mongodb.core.mapping.event.AfterLoadEvent;
 
 public class MongDBLoadListener extends AbstractMongoEventListener<Object> {
 
-
-	@Autowired
 	private EncryptionUtil encryptionUtil;
 	
-
+	public MongDBLoadListener() {
+		encryptionUtil = EncryptionUtil.getInstance();
+	}
 	
 	@Override
     public void onAfterLoad(AfterLoadEvent<Object> event) {

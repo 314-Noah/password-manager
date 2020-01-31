@@ -4,15 +4,16 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.event.AbstractMongoEventListener;
-import org.springframework.data.mongodb.core.mapping.event.AfterLoadEvent;
 import org.springframework.data.mongodb.core.mapping.event.BeforeSaveEvent;
 
 public class MongoDBSaveListener extends AbstractMongoEventListener<Object> {
 
-	@Autowired
 	private EncryptionUtil encryptionUtil;
+	
+	public MongoDBSaveListener() {
+		encryptionUtil = EncryptionUtil.getInstance();
+	}
 	
 	@Override
 	public void onBeforeSave(BeforeSaveEvent<Object> event) {

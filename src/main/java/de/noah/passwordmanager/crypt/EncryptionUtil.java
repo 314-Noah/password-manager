@@ -9,6 +9,8 @@ public class EncryptionUtil {
 
 	private BasicTextEncryptor textEncryptor;
 	
+	private static EncryptionUtil instance;
+	
 	public EncryptionUtil() {
 
         textEncryptor = new BasicTextEncryptor();
@@ -32,5 +34,14 @@ public class EncryptionUtil {
     public MongDBLoadListener mongoDBAfterLoadEventListener() {
         return new MongDBLoadListener();
     }
+
+	public static EncryptionUtil getInstance() {
+
+		if(instance == null) {
+			instance = new EncryptionUtil();
+		}
+		
+		return instance;
+	}
 	
 }
