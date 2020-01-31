@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Overview</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    <script th:src="@{/js/jscolor.js}"></script>
+    <script th:src="@{/js/script.js}"></script>
+</head>
+<body>
+	<div class="card blue">
+		<h1 class="card-content" style="color: #FEFEFE;">
+			Password Manager
+		</h1>
+	</div>
+	<div class="center-align">
+		<form class="center-align" action="">
+			<div class="input-field col s6" style="width: 75%">
+          		<input name="name" id="name" type="text" th:value="${predefined_name}" class="validate">
+         		<label for="name">Dienst</label>
+        	</div>
+        	<div class="input-field col s6" style="width: 75%">
+          		<input name="host" id="host" type="text" th:value="${predefined_host}" class="validate">
+         		<label for="host">Host</label>
+        	</div>
+        	<div class="input-field col s6" style="width: 75%">
+          		<input name="user" id="user" type="text" th:value="${predefined_user}" class="validate">
+         		<label for="user">Benutzername</label>
+        	</div>
+        	<div class="input-field col s6" style="width: 75%">
+          		<input name="pass" id="pass" th:value="${predefined_pass}" type="text" class="validate">
+         		<label for="pass">Passwort</label>
+        	</div>
+        	<div class="input-field col s6" style="width: 75%">
+          		<input name="topic" id="topic" th:value="${predefined_topic}" type="text" class="validate">
+         		<label for="topic">Kategorie</label>
+        	</div>
+		</form>
+    <button id="color" th:class="|jscolor {valueElement:null,value:'${predefined_color}'} margin|"
+          style="border:2px solid black">
+          Farbe
+    </button>
+		<button th:id="${path}" th:text="${btn}" class="btn waves-effect waves-light margin" onclick="generate(this.id)">
+		    <i class="material-icons right">send</i>
+		</button>
+	</div>
+	<p id="ID" style="display: none;" th:text="${predefined_id}"></p>
+</body>
+</html>

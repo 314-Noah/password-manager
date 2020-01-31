@@ -1,0 +1,40 @@
+
+body {
+	margin: 2%;
+}
+
+.body {
+	color: #FEFEFE;
+	display: inline-block;
+}
+
+.info_field {
+	display: inline-block;
+	width: 18%;
+	height: 23vh;
+}
+
+.bonus-info {
+	display: inline-block;
+}
+
+.topic {
+	width: 90%;
+	margin-left: 3%;
+}
+
+.addBtn {
+	float: right;
+}
+
+.margin {
+	margin: 3%;
+}
+
+p {
+	font-size: 1.65vh;
+}
+
+b {
+	font-size: 3vh; font-style: bold;
+}
