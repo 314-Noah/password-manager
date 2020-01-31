@@ -25,15 +25,15 @@ public class EncryptionUtil {
         return this.textEncryptor.decrypt(encryptedText);
     }
     
-    @Bean
-    public MongoDBSaveListener mongoDBBeforeSaveEventListener() {
-        return new MongoDBSaveListener();
-    }
-
-    @Bean
-    public MongDBLoadListener mongoDBAfterLoadEventListener() {
-        return new MongDBLoadListener();
-    }
+//    @Bean
+//    public MongoDBSaveListener mongoDBBeforeSaveEventListener() {
+//        return new MongoDBSaveListener();
+//    }
+//
+//    @Bean
+//    public MongDBLoadListener mongoDBAfterLoadEventListener() {
+//        return new MongDBLoadListener();
+//    }
 
 	public static EncryptionUtil getInstance() {
 
