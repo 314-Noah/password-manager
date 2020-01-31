@@ -10,8 +10,9 @@ body {
 
 .info_field {
 	display: inline-block;
+	scroll="no";
 	width: 20%;
-	height: 26vh;
+	height: 27vh;
 }
 
 .bonus-info {
