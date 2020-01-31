@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Overview</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}"/>
+</head>
+<body>
+	<div class="card blue">
+		<h1 class="card-content" style="color: #FEFEFE;">
+			Password Manager <a  href="#" data-target="slide-out" class="sidenav-trigger right white-text">
+				<i class="material-icons medium">search</i></a>
+		</h1>
+	</div>
+	<div>
+		<div th:each="entry, state: ${map}" th:id="${entry.key}" class="topic">
+			<div class="card grey" style="color: #FDFDFD">
+				<h2 th:text="${entry.key}"></h2>
+				<a th:href="|/create/${entry.key}|" class="btn-floating btn-large waves-effect waves-light red addBtn hoverable"><i class="material-icons">add</i></a>
+			</div>
+			<div>
+				<div class="card info_field hoverable" style="overflow: hidden;" th:each="element: ${entry.value}"> 
+					<!-- hidden verhindert Positions-Bug beim aktivieren des Löschvorgangs-->
+					<div class="card-content" style="resize: both;">
+						<b  th:utext="${element.name}" th:style="|color: ${element.hexColor}|"></b>
+						<p  th:utext="|user: ${element.username}|"></p>
+						<p  th:utext="|host: ${element.hostname}|"></p>
+						<p  th:utext="|password: ${element.password}|"></p>
+					</div>
+					<div class="card-action" style="resize: both;">
+			          <div  style="text-align: center; float: left; width: 40%;">
+			          	<a th:href="|/edit/${element.id}|"><i class="material-icons">create</i></a>
+			          </div>
+			          <div  style="text-align: center; float: right; width: 40%;">
+			          	<a><i class="material-icons activator">delete</i></a>
+			          </div>
+			        </div>
+			        <div class="card-reveal bonus-info">
+			      		<span class="card-title red-text">Löschen<i class="material-icons right">close</i></span>
+			      		<p class="red-text text-dareken-1">Sind sie sich sicher?</p>
+			      		<a th:href="|/operations/delete/${element.id}|"><i class="material-icons red-text medium">delete</i></a>
+			    	</div>
+				</div>
+			</div>
+		</div>
+		<a th:if="${map.empty}" href="/create/Sonstiges" class="btn-floating btn-large waves-effect waves-light red pulse addBtn hoverable"><i class="material-icons">add</i></a>
+	</div>
+	<ul id="slide-out" class="sidenav">
+		<li>
+			<div>
+				<div class="background">
+        			<img th:src="@{/css/maja.jpg}" style="width: 100%; height: 100%;">
+	      		</div>
+	      	</div>
+	    </li>
+	    <li>
+			<h4 class="card-content" style="color: #010101;">Password Manager</h4>
+			<input style="width: 90%; margin: 5%;" type="text" name="query">  
+		</li>
+	</ul>
+</body>
+<script type="text/javascript">
+	//M.Sidenav.defaults.edge = 'right';
+	M.AutoInit();
+</script>
+</html>
