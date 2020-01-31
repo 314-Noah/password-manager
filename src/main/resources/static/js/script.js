@@ -1,6 +1,6 @@
 
 function generate(path) {
-	var url = "http://localhost:8080/operations/" + path + "/"
+	var url = "https://my-password-manager.herokuapp.com/operations/" + path + "/"
 				+ document.getElementById('name').	value.replace("/", "@@@") 	+ "/"
 				+ document.getElementById('host').	value.replace("/", "@@@") 	+ "/"
 				+ document.getElementById('user').	value.replace("/", "@@@") 	+ "/"
