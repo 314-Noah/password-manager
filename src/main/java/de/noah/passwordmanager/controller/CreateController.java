@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import de.noah.passwordmanager.collections.Repositories;
 import de.noah.passwordmanager.collections.userdata.UserData;
 
+import java.util.UUID;
+
 @Controller
 public class CreateController {
 
@@ -23,7 +25,7 @@ public class CreateController {
 		model.addAttribute("predefined_color", "#22AADD");
 		model.addAttribute("predefined_pass", "");
 		model.addAttribute("predefined_topic", topic);
-		model.addAttribute("predefined_id", "ID");
+		model.addAttribute("predefined_id", UUID.randomUUID().toString());
 
 		model.addAttribute("btn", "Hinzufügen");
 		model.addAttribute("path", "create");
